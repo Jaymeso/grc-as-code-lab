@@ -1,0 +1,5 @@
+7. Observed that a single insecure S3 resource can violate multiple controls at once.
+8. Added a second OPA rule for versioning enforcement.
+9. Grouped S3 controls into a baseline control family.
+10. Updated secure S3 example to include versioning.
+

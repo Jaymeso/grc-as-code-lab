@@ -1,0 +1,27 @@
+control_family:
+  id: AWS-S3-BASELINE
+  name: S3 Baseline Security Controls
+  description: Baseline governance requirements for S3 buckets used to store business data.
+
+controls:
+  - id: GRC-001
+    name: Public S3 Buckets Prohibited
+    objective: Prevent unauthorised public exposure of cloud storage
+    frameworks:
+      ISO27001: A.8.20
+      SOC2: CC6
+      NIST: AC-3
+    enforcement:
+      opa_policy: policies/s3_public.rego
+      scanner: checkov
+
+  - id: GRC-002
+    name: S3 Versioning Required
+    objective: Support recovery, rollback, and resilience for stored data
+    frameworks:
+      ISO27001: A.8.13
+      SOC2: CC7
+      NIST: CP-10
+    enforcement:
+      opa_policy: policies/s3_versioning.rego
+      scanner: checkov
