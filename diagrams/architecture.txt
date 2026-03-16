@@ -1,0 +1,13 @@
+Terraform Infrastructure
+        │
+        ▼
+Checkov Compliance Scanner
+        │
+        ▼
+OPA Policy Engine
+        │
+        ▼
+Control Library
+        │
+        ▼
+Evidence
