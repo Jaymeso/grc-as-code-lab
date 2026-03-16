@@ -1,5 +1,23 @@
-7. Observed that a single insecure S3 resource can violate multiple controls at once.
+7.  Observed that a single insecure S3 resource can violate multiple controls at once.
 8. Added a second OPA rule for versioning enforcement.
 9. Grouped S3 controls into a baseline control family.
 10. Updated secure S3 example to include versioning.
+
+
+
+Week 1 – Control Enforcement Observations
+
+Checkov scan produced 13 failed checks and 13 passed checks.
+
+Key governance observations:
+
+1. A single insecure S3 resource can violate many independent controls.
+2. Public exposure, logging, encryption, lifecycle, and replication are separate governance requirements.
+3. Secure configuration reduced several findings but did not eliminate all risks.
+4. Control enforcement can come from:
+   - policy engines (OPA)
+   - infrastructure scanning (Checkov)
+
+Conclusion:
+Cloud security posture improves incrementally as controls are implemented.
 
