@@ -18,19 +18,23 @@ The project shows how traditional governance controls can be translated into **m
 - Checkov (Compliance Scanner)
 
 ## Architecture
-Terraform Infrastructure
-│
-▼
-Checkov Compliance Scanner
-│
-▼
-OPA Policy Engine
-│
-▼
-Control Library
-│
-▼
-Evidence
+
+```mermaid
+flowchart TD
+
+A[Terraform Infrastructure]
+B[Checkov Compliance Scan]
+C[OPA Policy Engine]
+D[Control Library]
+E[Evidence]
+
+A --> B
+B --> C
+C --> D
+D --> E
+``` id="8xbhax"
+
+This diagram illustrates how governance controls are enforced through automated scanning and policy evaluation.
 
 
 ## Repository Structure
