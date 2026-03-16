@@ -5,84 +5,71 @@
 ![Checkov](https://img.shields.io/badge/Checkov-ComplianceScanner-orange)
 ![Security](https://img.shields.io/badge/Security-GRC%20as%20Code-red)
 
+## Overview
 
+This repository demonstrates how **Governance, Risk, and Compliance (GRC)** controls can be implemented as code using modern cloud security tools.
 
-
-
-# GRC as Code Lab
-
-Hands-on training environment demonstrating how governance, risk, and compliance can be implemented as code using modern cloud security tools.
+The project shows how traditional governance controls can be translated into **machine-enforced policies** enabling continuous compliance.
 
 ## Tools Used
 
-- Terraform
-- Open Policy Agent (OPA)
-- Checkov
-
-## Repository Structure
-
-terraform/  → example cloud infrastructure  
-policies/   → governance policy rules  
-controls/   → control library definitions  
-evidence/   → audit evidence from exercises  
-
-## Purpose
-
-This lab demonstrates how traditional governance controls can be translated into machine-enforced rules for continuous compliance.
-
-## Training
-
-See: docs/grc-as-code-training-manual.md
-
-
-# GRC as Code Lab
-
-A hands-on training environment demonstrating how governance, risk and compliance controls can be implemented as code using modern cloud security tools.
-
-## Tools Used
-
-- Terraform
-- Open Policy Agent (OPA)
-- Checkov
+- Terraform (Infrastructure as Code)
+- Open Policy Agent (Policy Engine)
+- Checkov (Compliance Scanner)
 
 ## Architecture
-
-Terraform Infrastructure  
-↓  
-Checkov Compliance Scanner  
-↓  
-OPA Policy Engine  
-↓  
-Control Library  
-↓  
+Terraform Infrastructure
+│
+▼
+Checkov Compliance Scanner
+│
+▼
+OPA Policy Engine
+│
+▼
+Control Library
+│
+▼
 Evidence
+
 
 ## Repository Structure
 
-terraform/  → infrastructure examples  
-policies/   → governance policy rules  
-controls/   → control definitions  
-evidence/   → audit evidence  
+grc-as-code-lab
+│
+├ terraform/ Infrastructure examples
+├ policies/ Governance policy rules
+├ controls/ Control definitions
+├ evidence/ Audit evidence
+├ diagrams/ Architecture diagrams
+├ docs/ Training documentation
+└ README.md
+
 
 ## Example Controls
 
+This lab demonstrates several governance controls including:
+
 - Public S3 buckets prohibited
 - S3 versioning required
-
-## Training
-
-Instructor manual available in:
-
-docs/grc-as-code-training-manual.md
-
-## Purpose
-
-This project demonstrates how traditional governance controls can be translated into machine-enforced rules enabling continuous compliance.
-
-
+- Secure storage configuration
 
 ## Training Manual
 
-A full instructor guide is available here:
+A full instructor guide for running this lab in a training environment is available here: docs/grc-as-code-training-manual.md
 
-docs/grc-as-code-training-manual.md
+
+
+## Purpose
+
+The purpose of this repository is to demonstrate how organizations can implement **continuous compliance** using Infrastructure as Code, policy engines, and automated security scanning.
+
+## Future Improvements
+
+Planned enhancements include:
+
+- CI/CD compliance pipelines
+- Automated control evaluation
+- Risk scoring engine
+- Framework mapping (ISO27001, SOC2, NIST)
+
