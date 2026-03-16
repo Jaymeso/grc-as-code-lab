@@ -1,0 +1,24 @@
+domains:
+
+  cloud_security:
+
+    storage_security:
+      description: Controls governing cloud storage services such as S3, Blob storage, and object storage.
+      controls:
+        - GRC-001
+        - GRC-002
+
+    encryption_controls:
+      description: Controls ensuring sensitive data is encrypted in storage and transit.
+
+    logging_monitoring:
+      description: Controls requiring logging, monitoring, and event notification.
+
+    resilience_recovery:
+      description: Controls supporting recovery, versioning, replication, and lifecycle management.
+
+    network_security:
+      description: Controls governing exposure of services to public networks.
+
+    identity_access:
+      description: Controls governing authentication, authorization, and privilege management.

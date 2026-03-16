@@ -4,6 +4,9 @@
 10. Updated secure S3 example to include versioning.
 
 
+11. Designed a control taxonomy for cloud governance.
+12. Grouped S3 controls under the storage security domain.
+13. Established separation between control domains, control definitions, and technical enforcement.
 
 Week 1 – Control Enforcement Observations
 
