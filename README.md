@@ -32,7 +32,7 @@ A --> B
 B --> C
 C --> D
 D --> E
-``` id="8xbhax"
+``` 
 
 This diagram illustrates how governance controls are enforced through automated scanning and policy evaluation.
 
