@@ -79,3 +79,10 @@ docs/grc-as-code-training-manual.md
 
 This project demonstrates how traditional governance controls can be translated into machine-enforced rules enabling continuous compliance.
 
+
+
+## Training Manual
+
+A full instructor guide is available here:
+
+docs/grc-as-code-training-manual.md
