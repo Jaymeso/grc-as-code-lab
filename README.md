@@ -1,5 +1,16 @@
 # GRC as Code Lab
 
+![Terraform](https://img.shields.io/badge/Terraform-IaC-blue)
+![OPA](https://img.shields.io/badge/OpenPolicyAgent-PolicyEngine-green)
+![Checkov](https://img.shields.io/badge/Checkov-ComplianceScanner-orange)
+![Security](https://img.shields.io/badge/Security-GRC%20as%20Code-red)
+
+
+
+
+
+# GRC as Code Lab
+
 Hands-on training environment demonstrating how governance, risk, and compliance can be implemented as code using modern cloud security tools.
 
 ## Tools Used
@@ -67,3 +78,4 @@ docs/grc-as-code-training-manual.md
 ## Purpose
 
 This project demonstrates how traditional governance controls can be translated into machine-enforced rules enabling continuous compliance.
+
