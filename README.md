@@ -11,6 +11,73 @@ This repository demonstrates how **Governance, Risk, and Compliance (GRC)** cont
 
 The project shows how traditional governance controls can be translated into **machine-enforced policies** enabling continuous compliance.
 
+## Course Roadmap
+
+This repository is structured as a progressive GRC engineering training programme.
+
+### Week 1 – Foundations: GRC as Code
+
+- Infrastructure as Code (Terraform)
+- Policy as Code (OPA)
+- Compliance Scanning (Checkov)
+- Control Definition (YAML)
+- Evidence capture
+
+Outcome:
+- Detect misconfigurations
+- Understand control enforcement
+
+---
+
+### Week 2 – Compliance Engine & Automation
+
+- Checkov JSON parsing
+- Control mapping engine (Python)
+- Framework mapping (ISO27001 / SOC2 / NIST)
+- Compliance scoring
+- GitHub Actions integration
+- Automated evidence generation
+
+Outcome:
+- Translate technical findings into compliance posture
+- Generate audit-ready evidence automatically
+
+---
+
+### Week 3 – Risk Engine (Coming Next)
+
+- Risk scoring (HIGH / MEDIUM weighting)
+- Control criticality
+- Compliance thresholds
+- Risk-based decision making
+- Dashboard-style output
+
+Outcome:
+- Move from compliance → risk intelligence
+
+## What This Project Demonstrates
+
+This lab simulates how modern cloud governance platforms operate:
+
+- Continuous compliance (every commit is evaluated)
+- Control abstraction (technical → governance)
+- Framework alignment (ISO27001, SOC2, NIST)
+- Automated evidence generation
+- DevSecOps integration
+
+The system evolves from:
+Misconfiguration detection
+
+to:
+
+Compliance as Code
+
+
+and ultimately to:
+
+Risk-based governance
+
+
 ## Tools Used
 
 - Terraform (Infrastructure as Code)
@@ -77,3 +144,26 @@ Planned enhancements include:
 - Risk scoring engine
 - Framework mapping (ISO27001, SOC2, NIST)
 
+
+
+## Run the Lab
+
+Clone the repository:
+git clone https://github.com/Jaymeso/grc-as-code-lab.git
+
+cd grc-as-code-lab
+
+
+Install dependencies:
+brew install terraform
+brew install open-policy-agent
+pip3 install checkov pyyaml
+
+
+Run compliance scan:
+checkov -d terraform
+
+
+Run compliance engine:
+checkov -d terraform --output json > checkov_results.json
+python3 evaluate_controls.py
