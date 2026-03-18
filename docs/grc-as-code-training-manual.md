@@ -29,7 +29,6 @@ By the end of this lab participants will:
 6. Map controls to regulatory frameworks
 7. Understand continuous compliance pipelines
 
-
 ---
 
 ## Lab Architecture
@@ -54,7 +53,6 @@ This mirrors the architecture used by modern security platforms such as:
 - Bridgecrew
 - Drata
 
-
 ---
 
 ## Prerequisites
@@ -75,7 +73,6 @@ Terraform – infrastructure as code
 Open Policy Agent – policy engine  
 Checkov – compliance scanning tool
 
-
 ---
 
 ## Exercise 1 – Create Project Structure
@@ -83,7 +80,6 @@ Checkov – compliance scanning tool
 Create the repository structure:
 
 mkdir -p grc-as-code-lab/{terraform,policies,controls,evidence}
-
 
 
 Expected structure:
