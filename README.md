@@ -1,6 +1,5 @@
 <p align="center">
-  <img src="assets/calm-
-logo.png" width="180"/>
+  <img src="assets/calm-logo.png" width="200"/>
 </p>
 
 <p align="center">
@@ -9,8 +8,6 @@ logo.png" width="180"/>
 </p>
 
 # GRC as Code Lab
-
-**Calm Resilience Security LTD**
 
 A hands-on training environment demonstrating how governance, risk, and compliance (GRC) can be implemented as code using modern cloud security tooling.
 
