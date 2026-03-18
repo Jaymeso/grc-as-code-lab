@@ -301,3 +301,140 @@ Participants will learn:
 - automated control evaluation
 - risk scoring
 - CI/CD compliance pipelines
+
+
+
+---
+
+## Week 2 – Compliance Evaluation Engine & Automated Pipeline
+
+### Overview
+
+In Week 2, the lab evolves from simple misconfiguration detection to a full **compliance evaluation system**.
+
+Participants build a system that translates technical findings into:
+
+- internal control failures
+- external framework mappings
+- compliance scores
+- audit evidence
+
+---
+
+### Architecture Upgrade
+
+The pipeline now operates as follows:
+
+Terraform Infrastructure
+↓
+Checkov Scan (JSON Output)
+↓
+Compliance Evaluation Engine (Python)
+↓
+Control Mapping (YAML)
+↓
+Framework Mapping (ISO27001 / SOC2 / NIST)
+↓
+Compliance Report
+↓
+Evidence Artifact
+
+
+
+---
+
+### Key Concepts Introduced
+
+1. **Control Abstraction**
+   - Technical findings are mapped to internal control IDs (e.g. GRC-001)
+
+2. **Framework Mapping**
+   - Controls are linked to regulatory standards:
+     - ISO27001
+     - SOC2
+     - NIST
+
+3. **Compliance Scoring**
+   - Percentage of controls passing vs failing
+
+4. **Evidence Automation**
+   - Reports generated automatically and stored as artifacts
+
+5. **Pipeline Resilience**
+   - The pipeline continues even when violations are detected
+
+---
+
+### Implementation Steps
+
+#### Step 1 – Generate Checkov JSON Output
+
+checkov -d terraform --output json > checkov_results.json
+
+
+---
+
+#### Step 2 – Build Evaluation Engine
+
+Participants create a Python script that:
+
+- parses Checkov JSON results
+- maps failed checks to controls
+- maps controls to frameworks
+- calculates compliance score
+- generates a report
+
+---
+
+#### Step 3 – Integrate into GitHub Actions
+
+Workflow now includes:
+
+- Checkov scan
+- JSON output generation
+- Python evaluation engine execution
+- artifact upload
+
+---
+
+### Example Output
+
+GRC-001 - Public S3 Buckets Prohibited: FAIL (HIGH)
+GRC-002 - S3 Versioning Required: FAIL (MEDIUM)
+
+=== FRAMEWORK SUMMARY ===
+
+ISO27001: {'PASS': 0, 'FAIL': 2}
+SOC2: {'PASS': 0, 'FAIL': 2}
+NIST: {'PASS': 0, 'FAIL': 2}
+
+Compliance Score: 0.00%
+
+
+---
+
+### Learning Outcomes
+
+By the end of Week 2, participants can:
+
+- translate security findings into governance controls
+- map controls to regulatory frameworks
+- calculate compliance posture automatically
+- generate audit evidence continuously
+- integrate compliance evaluation into CI/CD pipelines
+
+---
+
+### Key Insight
+
+This stage demonstrates the transition from:
+
+Security scanning
+
+
+to: Compliance as Code
+
+
+Participants now understand how modern platforms automate governance and assurance at scale.
+
+---
