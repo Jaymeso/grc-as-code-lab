@@ -1,3 +1,12 @@
+<p align="center">
+  <img src="assets/logo.png" width="180"/>
+</p>
+
+<p align="center">
+  <b>Calm Resilience Security LTD</b><br>
+  <i>Engineering calm through resilient security</i>
+</p>
+
 # GRC as Code Lab
 
 **Calm Resilience Security LTD**
