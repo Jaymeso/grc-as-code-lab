@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/calm-logo.png" width="200"/>
+  <img src="assets/calm-log-01o.png" width="200"/>
 </p>
 
 <p align="center">
