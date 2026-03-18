@@ -1,5 +1,9 @@
 # GRC as Code Lab
 
+**Calm Resilience Security LTD**
+
+A hands-on training environment demonstrating how governance, risk, and compliance (GRC) can be implemented as code using modern cloud security tooling.
+
 ![Terraform](https://img.shields.io/badge/Terraform-IaC-blue)
 ![OPA](https://img.shields.io/badge/OpenPolicyAgent-PolicyEngine-green)
 ![Checkov](https://img.shields.io/badge/Checkov-ComplianceScanner-orange)
@@ -167,3 +171,15 @@ checkov -d terraform
 Run compliance engine:
 checkov -d terraform --output json > checkov_results.json
 python3 evaluate_controls.py
+
+
+## About
+
+This training lab is developed and maintained by **Calm Resilience Security LTD**, a consultancy focused on:
+
+- Cloud governance and security
+- GRC automation
+- ISO27001 / SOC2 alignment
+- DevSecOps integration
+
+The goal is to demonstrate how modern organisations can move from manual compliance processes to **automated, continuous assurance**.
