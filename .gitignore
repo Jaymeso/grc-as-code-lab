@@ -1,0 +1,4 @@
+# Generated files
+checkov_results.json
+evidence/*.txt
+evidence/*.html
