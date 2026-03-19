@@ -23,6 +23,43 @@ This repository demonstrates how **Governance, Risk, and Compliance (GRC)** cont
 The project shows how traditional governance controls can be translated into **machine-enforced policies** enabling continuous compliance.
 
 ## Course Roadmap
+## Example Outcomes
+
+This lab demonstrates multiple governance states depending on infrastructure configuration.
+
+### Scenario A – Medium Risk
+
+- GRC-001 Public S3 Buckets Prohibited: PASS  
+- GRC-002 S3 Versioning Required: FAIL  
+- Compliance Score: 50.00%  
+- Risk Level: MEDIUM  
+- Decision: REVIEW REQUIRED  
+
+This scenario reflects a partially compliant environment where issues exist but do not require immediate deployment blocking.
+
+---
+
+### Scenario B – High Risk
+
+- GRC-001 Public S3 Buckets Prohibited: FAIL  
+- GRC-002 S3 Versioning Required: FAIL  
+- Compliance Score: 0.00%  
+- Risk Level: HIGH  
+- Decision: BLOCK DEPLOYMENT  
+
+This scenario demonstrates a critical misconfiguration where deployment must be stopped.
+
+---
+
+### Why This Matters
+
+Modern GRC systems should not operate on binary pass/fail logic.
+
+This lab demonstrates:
+
+- Partial compliance handling  
+- Risk-based decision making  
+- Automated enforcement of governance thresholds  
 
 This repository is structured as a progressive GRC engineering training programme.
 

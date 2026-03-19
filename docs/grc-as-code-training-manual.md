@@ -53,6 +53,24 @@ This mirrors the architecture used by modern security platforms such as:
 - Bridgecrew
 - Drata
 
+## Architecture Diagram
+
+```mermaid
+flowchart TD
+    A[Terraform Code] --> B[Checkov Scan]
+    B --> C[Checkov JSON Output]
+    C --> D[Compliance Engine (Python)]
+    D --> E[Control Mapping]
+    E --> F[Framework Mapping]
+    F --> G[Risk Engine]
+    G --> H{Decision}
+
+    H -->|LOW| I[Allow Deployment]
+    H -->|MEDIUM| J[Review Required]
+    H -->|HIGH| K[Block Deployment]
+
+    D --> L[Evidence Report]
+    L --> M[GitHub Artifact Storage]
 ---
 
 ## Prerequisites
