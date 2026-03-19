@@ -26,12 +26,12 @@ jobs:
         run: |
           checkov -d terraform --output json > checkov_results.json || true
 
-      - name: Run compliance evaluation engine
+      - name: Run compliance and risk evaluation engine
         run: |
           python3 evaluate_controls.py
 
-      - name: Upload compliance report
+      - name: Upload risk report
         uses: actions/upload-artifact@v4
         with:
-          name: compliance-report
-          path: evidence/week2_compliance_report.txt
+          name: risk-report
+          path: evidence/week3_risk_report.txt

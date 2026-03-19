@@ -131,3 +131,8 @@ with open("evidence/week3_risk_report.txt", "w") as f:
     f.write(f"Total Risk Score: {total_risk_score}\n")
     f.write(f"Risk Level: {risk_level}\n")
     f.write(f"Decision: {decision}\n")
+
+import sys
+
+if decision == "BLOCK DEPLOYMENT":
+    sys.exit(1)
