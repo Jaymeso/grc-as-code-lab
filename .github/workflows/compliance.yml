@@ -30,8 +30,14 @@ jobs:
         run: |
           python3 evaluate_controls.py
 
-      - name: Upload risk report
+      - name: Generate dashboard
+        run: |
+          python3 generate_dashboard.py
+
+      - name: Upload reports
         uses: actions/upload-artifact@v4
         with:
-          name: risk-report
-          path: evidence/week3_risk_report.txt
+          name: compliance-artifacts
+          path: |
+            evidence/week3_risk_report.txt
+            evidence/dashboard.html
