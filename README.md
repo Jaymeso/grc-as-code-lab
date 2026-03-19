@@ -227,3 +227,32 @@ This training lab is developed and maintained by **Calm Resilience Security LTD*
 - DevSecOps integration
 
 The goal is to demonstrate how modern organisations can move from manual compliance processes to **automated, continuous assurance**.
+
+
+
+---
+
+## Commercial Use & Services
+
+This project is released under the MIT License and is free to use, modify, and distribute.
+
+However, this repository represents a **reference implementation of a GRC-as-Code architecture** developed by **Calm Resilience Security LTD**.
+
+For organisations looking to:
+
+- Implement enterprise-grade GRC automation
+- Integrate compliance into CI/CD pipelines
+- Build ISO 27001 / SOC 2 / NIST-aligned control frameworks
+- Operationalise risk-based deployment decisions
+
+We offer consulting, advisory, and implementation services.
+
+📩 Contact: enquiries@calmresilience.security  
+🌐 Company: Calm Resilience Security LTD
+
+---
+
+## Disclaimer
+
+This project is provided for educational and demonstration purposes.  
+It does not constitute legal, regulatory, or compliance advice.
