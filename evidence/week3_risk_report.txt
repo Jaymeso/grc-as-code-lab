@@ -1,18 +1,18 @@
 === COMPLIANCE REPORT ===
 
-GRC-001 - Public S3 Buckets Prohibited: PASS (HIGH)
+GRC-001 - Public S3 Buckets Prohibited: FAIL (HIGH)
 GRC-002 - S3 Versioning Required: FAIL (MEDIUM)
 
 === FRAMEWORK SUMMARY ===
 
-ISO27001: {'PASS': 1, 'FAIL': 1}
-SOC2: {'PASS': 1, 'FAIL': 1}
-NIST: {'PASS': 1, 'FAIL': 1}
+ISO27001: {'PASS': 0, 'FAIL': 2}
+SOC2: {'PASS': 0, 'FAIL': 2}
+NIST: {'PASS': 0, 'FAIL': 2}
 
-Compliance Score: 50.00%
+Compliance Score: 0.00%
 
 === RISK SUMMARY ===
 
-Total Risk Score: 25
-Risk Level: MEDIUM
-Decision: REVIEW REQUIRED
+Total Risk Score: 75
+Risk Level: HIGH
+Decision: BLOCK DEPLOYMENT
