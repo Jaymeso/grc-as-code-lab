@@ -434,3 +434,78 @@ to: Compliance as Code
 Participants now understand how modern platforms automate governance and assurance at scale.
 
 ---
+# Week 3 – Risk Engine
+
+## Overview
+
+In Week 3, the lab evolves from compliance reporting into risk-based decision making.
+
+Participants implement:
+
+- Risk weighting per control  
+- Total risk score calculation  
+- Risk classification (LOW / MEDIUM / HIGH)  
+- Deployment decision logic  
+
+---
+
+## Implementation
+
+Each control is assigned a risk weight:
+
+- HIGH severity → higher impact  
+- MEDIUM severity → moderate impact  
+
+The system:
+
+1. Calculates total risk score  
+2. Determines risk level  
+3. Outputs a governance decision  
+
+---
+
+## Example Risk Outcomes
+
+### Scenario A – Medium Risk
+
+- GRC-001 Public S3 Buckets Prohibited: PASS  
+- GRC-002 S3 Versioning Required: FAIL  
+- Compliance Score: 50.00%  
+- Risk Score: 25  
+- Risk Level: MEDIUM  
+- Decision: REVIEW REQUIRED  
+
+---
+
+### Scenario B – High Risk
+
+- GRC-001 Public S3 Buckets Prohibited: FAIL  
+- GRC-002 S3 Versioning Required: FAIL  
+- Compliance Score: 0.00%  
+- Risk Score: 75  
+- Risk Level: HIGH  
+- Decision: BLOCK DEPLOYMENT  
+
+---
+
+## Key Learning Outcome
+
+Participants learn that:
+
+- Not all control failures are equal  
+- Compliance is not binary  
+- Risk scoring enables intelligent governance decisions  
+- CI/CD pipelines can enforce security automatically  
+
+---
+
+## Real-World Relevance
+
+This lab mirrors modern enterprise security approaches:
+
+- Continuous compliance via CI/CD pipelines  
+- Policy-as-Code enforcement  
+- Risk-based governance models  
+- Automated audit evidence generation  
+
+This replaces traditional manual audits with continuous assurance systems.
