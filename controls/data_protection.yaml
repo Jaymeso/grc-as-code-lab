@@ -1,0 +1,15 @@
+control_family:
+  id: AWS-DATA-PROTECTION
+  name: Data Protection Controls
+
+controls:
+  - id: GRC-201
+    name: S3 Buckets Must Use KMS Encryption
+    severity: HIGH
+    risk_weight: 40
+    frameworks:
+      ISO27001: A.8.24
+      SOC2: CC6
+      NIST: SC-12
+    enforcement:
+      checkov: CKV_AWS_145

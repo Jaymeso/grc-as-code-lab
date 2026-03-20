@@ -21,13 +21,19 @@ failed_checks = [
 # -----------------------------
 # Load control definitions
 # -----------------------------
-with open("controls/control_taxonomy.yaml") as f:
-    control_data = yaml.safe_load(f)
+control_files = [
+    "controls/control_taxonomy.yaml",
+    "controls/iam_controls.yaml",
+    "controls/data_protection.yaml"
+]
 
-controls = control_data["controls"]
+controls = []
 
+for file_path in control_files:
+    with open(file_path) as f:
+        control_data = yaml.safe_load(f)
+        controls.extend(control_data["controls"])
 results = []
-
 # -----------------------------
 # Evaluate controls
 # -----------------------------

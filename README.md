@@ -103,6 +103,27 @@ Outcome:
 Outcome:
 - Move from compliance → risk intelligence
 
+---
+
+### Week 4 – Enterprise GRC Architecture
+
+- Expanded from single-family controls to multi-family governance
+- Added IAM control family
+- Added Data Protection control family
+- Unified enterprise risk scoring across multiple domains
+
+Control families now include:
+- Storage Security
+- Identity & Access Management
+- Data Protection
+
+Example outcome:
+- Compliance Score: 25.00%
+- Risk Level: HIGH
+- Decision: BLOCK DEPLOYMENT
+
+---
+
 ## What This Project Demonstrates
 
 This lab simulates how modern cloud governance platforms operate:
@@ -173,48 +194,14 @@ This lab demonstrates several governance controls including:
 - S3 versioning required
 - Secure storage configuration
 
+
+
+
+
 ## Training Manual
 
 A full instructor guide for running this lab in a training environment is available here: docs/grc-as-code-training-manual.md
 
-
-
-## Purpose
-
-The purpose of this repository is to demonstrate how organizations can implement **continuous compliance** using Infrastructure as Code, policy engines, and automated security scanning.
-
-## Future Improvements
-
-Planned enhancements include:
-
-- CI/CD compliance pipelines
-- Automated control evaluation
-- Risk scoring engine
-- Framework mapping (ISO27001, SOC2, NIST)
-
-
-
-## Run the Lab
-
-Clone the repository:
-git clone https://github.com/Jaymeso/grc-as-code-lab.git
-
-cd grc-as-code-lab
-
-
-Install dependencies:
-brew install terraform
-brew install open-policy-agent
-pip3 install checkov pyyaml
-
-
-Run compliance scan:
-checkov -d terraform
-
-
-Run compliance engine:
-checkov -d terraform --output json > checkov_results.json
-python3 evaluate_controls.py
 
 
 ## About

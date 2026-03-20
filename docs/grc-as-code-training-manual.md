@@ -527,3 +527,54 @@ This lab mirrors modern enterprise security approaches:
 - Automated audit evidence generation  
 
 This replaces traditional manual audits with continuous assurance systems.
+
+---
+
+
+# Week 4 – Enterprise GRC Architecture
+
+## Overview
+
+In Week 4, the lab evolves from a single-domain governance model into a multi-family enterprise GRC architecture.
+
+Participants extend the engine to support multiple control families across different cloud governance domains.
+
+---
+
+## Control Families Introduced
+
+- Storage Security
+- Identity & Access Management
+- Data Protection
+
+---
+
+## Example Controls
+
+- GRC-002 S3 Versioning Required
+- GRC-101 No Wildcard IAM Policies
+- GRC-201 S3 Buckets Must Use KMS Encryption
+
+---
+
+## Example Outcome
+
+=== COMPLIANCE REPORT ===
+
+GRC-001 - Public S3 Buckets Prohibited: PASS (HIGH)
+GRC-002 - S3 Versioning Required: FAIL (MEDIUM)
+GRC-101 - No Wildcard IAM Policies: FAIL (HIGH)
+GRC-201 - S3 Buckets Must Use KMS Encryption: FAIL (HIGH)
+
+Compliance Score: 25.00%
+Risk Level: HIGH
+Decision: BLOCK DEPLOYMENT
+
+---
+
+## Key Learning Outcome
+
+Participants learn how to:
+- structure controls into enterprise domains
+- aggregate risk across multiple families
+- produce one unified governance decision across the environment
