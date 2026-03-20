@@ -578,3 +578,14 @@ Participants learn how to:
 - structure controls into enterprise domains
 - aggregate risk across multiple families
 - produce one unified governance decision across the environment
+
+---
+
+## Additional Control Family
+
+Week 4 was completed by adding a Logging / Monitoring family.
+
+Example control:
+- GRC-301 S3 Buckets Must Have Access Logging Enabled
+
+This demonstrates how enterprise governance expands across multiple operational domains rather than focusing only on storage or identity.

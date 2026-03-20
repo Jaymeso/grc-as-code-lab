@@ -24,7 +24,8 @@ failed_checks = [
 control_files = [
     "controls/control_taxonomy.yaml",
     "controls/iam_controls.yaml",
-    "controls/data_protection.yaml"
+    "controls/data_protection.yaml",
+    "controls/logging_controls.yaml"
 ]
 
 controls = []

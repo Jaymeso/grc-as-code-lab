@@ -124,6 +124,16 @@ Example outcome:
 
 ---
 
+- Added Logging / Monitoring control family
+
+Control families now include:
+- Storage Security
+- Identity & Access Management
+- Data Protection
+- Logging / Monitoring
+
+---
+
 ## What This Project Demonstrates
 
 This lab simulates how modern cloud governance platforms operate:

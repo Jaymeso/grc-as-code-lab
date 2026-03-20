@@ -1,0 +1,15 @@
+control_family:
+  id: AWS-LOGGING
+  name: Logging and Monitoring Controls
+
+controls:
+  - id: GRC-301
+    name: S3 Buckets Must Have Access Logging Enabled
+    severity: MEDIUM
+    risk_weight: 30
+    frameworks:
+      ISO27001: A.8.15
+      SOC2: CC7
+      NIST: AU-2
+    enforcement:
+      checkov: CKV_AWS_18
