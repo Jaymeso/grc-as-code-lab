@@ -37,6 +37,74 @@ This repository demonstrates how **Governance, Risk, and Compliance (GRC)** cont
 
 The project shows how traditional governance controls can be translated into **machine-enforced policies** enabling continuous compliance.
 
+### Course Roadmap
+This repository is structured as a progressive GRC engineering training programme.
+
+### Week 1 – Foundations: GRC as Code
+
+- Infrastructure as Code (Terraform)
+- Policy as Code (OPA)
+- Compliance Scanning (Checkov)
+- Control Definition (YAML)
+- Evidence capture
+
+Outcome:
+- Detect misconfigurations
+- Understand control enforcement
+
+---
+
+### Week 2 – Compliance Engine & Automation
+
+- Checkov JSON parsing
+- Control mapping engine (Python)
+- Framework mapping (ISO27001 / SOC2 / NIST)
+- Compliance scoring
+- GitHub Actions integration
+- Automated evidence generation
+
+Outcome:
+- Translate technical findings into compliance posture
+- Generate audit-ready evidence automatically
+
+---
+
+### Week 3 – Risk Engine
+
+- Risk weighting per control
+- Total risk score calculation
+- Risk classification (LOW / MEDIUM / HIGH)
+- Deployment decision logic
+
+Outcome:
+- Move from compliance reporting to risk-based governance
+
+---
+
+### Week 4 – Enterprise GRC Architecture
+
+- Expanded from single-family controls to multi-family governance
+- Added IAM control family
+- Added Data Protection control family
+- Added Logging & Monitoring control family
+- Unified enterprise risk scoring across multiple domains
+
+Outcome:
+- Aggregate risk across storage, identity, data protection, and logging
+- Produce a single governance decision across multiple control families
+
+---
+
+### Week 5 – Client-Ready Fintech Use Case
+
+- Fintech governance scenario
+- Executive-style reporting
+- Product-style repo positioning
+- Business-value framing
+
+Outcome:
+- Turn the lab into a client-ready governance product prototype
+
 ## Evidence Trail
 
 The `evidence/` folder captures the progression of the platform:
@@ -46,7 +114,6 @@ The `evidence/` folder captures the progression of the platform:
 - Week 3 – Risk Engine Evidence
 - Week 4 – Enterprise Governance Evidence
 
-## Course Roadmap
 ## Example Outcomes
 
 This lab demonstrates multiple governance states depending on infrastructure configuration.
