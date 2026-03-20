@@ -1,0 +1,15 @@
+control_family:
+  id: AWS-IDENTITY
+  name: Identity and Access Management Controls
+
+controls:
+  - id: GRC-101
+    name: No Wildcard IAM Policies
+    severity: HIGH
+    risk_weight: 50
+    frameworks:
+      ISO27001: A.5.15
+      SOC2: CC6
+      NIST: AC-6
+    enforcement:
+      checkov: CKV2_AWS_40
