@@ -1,4 +1,27 @@
-=== COMPLIANCE REPORT ===
+Week 3 – Risk Engine Evidence
+
+=== Scenario A: Medium Risk ===
+
+GRC-001 - Public S3 Buckets Prohibited: PASS (HIGH)
+GRC-002 - S3 Versioning Required: FAIL (MEDIUM)
+
+=== FRAMEWORK SUMMARY ===
+
+ISO27001: {'PASS': 1, 'FAIL': 1}
+SOC2: {'PASS': 1, 'FAIL': 1}
+NIST: {'PASS': 1, 'FAIL': 1}
+
+Compliance Score: 50.00%
+
+=== RISK SUMMARY ===
+
+Total Risk Score: 25
+Risk Level: MEDIUM
+Decision: REVIEW REQUIRED
+
+---
+
+=== Scenario B: High Risk ===
 
 GRC-001 - Public S3 Buckets Prohibited: FAIL (HIGH)
 GRC-002 - S3 Versioning Required: FAIL (MEDIUM)
@@ -16,3 +39,13 @@ Compliance Score: 0.00%
 Total Risk Score: 75
 Risk Level: HIGH
 Decision: BLOCK DEPLOYMENT
+
+---
+
+Week 3 Evidence Notes
+- Week 3 introduced weighted risk scoring.
+- Control failures no longer produced only compliance results; they also produced governance decisions.
+- The lab demonstrated both a medium-risk review state and a high-risk deployment block state.
+
+Outcome
+Week 3 established risk-based decision making as part of the CI/CD governance model.

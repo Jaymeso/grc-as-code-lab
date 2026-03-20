@@ -1,4 +1,7 @@
-# Generated files
+# Generated scan/report artifacts
 checkov_results.json
-evidence/*.txt
-evidence/*.html
+evidence/dashboard.html
+
+# Generated runtime reports
+evidence/week3_runtime_report.txt
+evidence/latest_report.txt

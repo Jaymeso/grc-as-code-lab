@@ -1,5 +1,23 @@
+Week 2 – Compliance Evaluation Report
+
 === COMPLIANCE REPORT ===
 
-GRC-002 - FAIL
+GRC-001 - Public S3 Buckets Prohibited: PASS (HIGH)
+GRC-002 - S3 Versioning Required: FAIL (MEDIUM)
 
-Score: 0.00%
+=== FRAMEWORK SUMMARY ===
+
+ISO27001: {'PASS': 1, 'FAIL': 1}
+SOC2: {'PASS': 1, 'FAIL': 1}
+NIST: {'PASS': 1, 'FAIL': 1}
+
+Compliance Score: 50.00%
+
+Week 2 Evidence Notes
+- Checkov JSON results were parsed programmatically.
+- Technical findings were mapped to internal control definitions.
+- Internal controls were mapped to external frameworks.
+- The lab moved from raw misconfiguration detection to structured compliance evaluation.
+
+Outcome
+Week 2 established the compliance engine and demonstrated how technical findings can be translated into governance posture.

@@ -1,0 +1,50 @@
+Week 4 – Enterprise Governance Evidence
+
+Summary
+Week 4 expanded the lab from a single-family cloud control model into a multi-family enterprise governance architecture.
+
+Control Families Implemented
+1. Storage Security
+2. Identity & Access Management
+3. Data Protection
+4. Logging / Monitoring
+
+Controls Evaluated
+- GRC-001 - Public S3 Buckets Prohibited
+- GRC-002 - S3 Versioning Required
+- GRC-101 - No Wildcard IAM Policies
+- GRC-201 - S3 Buckets Must Use KMS Encryption
+- GRC-301 - S3 Buckets Must Have Access Logging Enabled
+
+Example Week 4 Outcome
+
+=== COMPLIANCE REPORT ===
+
+GRC-001 - Public S3 Buckets Prohibited: PASS (HIGH)
+GRC-002 - S3 Versioning Required: FAIL (MEDIUM)
+GRC-101 - No Wildcard IAM Policies: FAIL (HIGH)
+GRC-201 - S3 Buckets Must Use KMS Encryption: FAIL (HIGH)
+GRC-301 - S3 Buckets Must Have Access Logging Enabled: FAIL (MEDIUM)
+
+=== FRAMEWORK SUMMARY ===
+
+ISO27001: {'PASS': 1, 'FAIL': 4}
+SOC2: {'PASS': 1, 'FAIL': 4}
+NIST: {'PASS': 1, 'FAIL': 4}
+
+Compliance Score: 20.00%
+
+=== RISK SUMMARY ===
+
+Total Risk Score: 145
+Risk Level: HIGH
+Decision: BLOCK DEPLOYMENT
+
+Key Observations
+1. Governance decisions are now aggregated across multiple control families rather than one storage-only domain.
+2. Identity, data protection, and logging failures significantly increase enterprise risk posture.
+3. The platform now produces a unified risk decision across multiple governance domains.
+4. Multi-family control architecture is closer to a real fintech or enterprise cloud governance model.
+
+Outcome
+Week 4 established a multi-domain enterprise GRC architecture capable of aggregating controls, frameworks, and risk across storage, IAM, data protection, and logging.
