@@ -5,7 +5,7 @@ Built the initial GRC-as-Code lab environment using Terraform, OPA, Checkov, YAM
 
 Activities completed
 1. Created the repository structure for terraform, policies, controls, and evidence.
-2. Built an insecure S3 Terraform example for control-testing purposes.
+2. Built an intentionally insecure S3 Terraform example for control-testing purposes.
 3. Created an OPA policy to prohibit public S3 buckets.
 4. Created a second OPA policy to require S3 versioning.
 5. Ran Checkov scans against the Terraform examples.

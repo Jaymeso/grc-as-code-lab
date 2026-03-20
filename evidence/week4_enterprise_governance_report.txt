@@ -7,7 +7,7 @@ Control Families Implemented
 1. Storage Security
 2. Identity & Access Management
 3. Data Protection
-4. Logging / Monitoring
+4. Logging & Monitoring
 
 Controls Evaluated
 - GRC-001 - Public S3 Buckets Prohibited
@@ -47,4 +47,4 @@ Key Observations
 4. Multi-family control architecture is closer to a real fintech or enterprise cloud governance model.
 
 Outcome
-Week 4 established a multi-domain enterprise GRC architecture capable of aggregating controls, frameworks, and risk across storage, IAM, data protection, and logging.
+Week 4 established a multi-domain enterprise GRC architecture capable of aggregating controls, frameworks, and risk across storage, identity, data protection, and logging.

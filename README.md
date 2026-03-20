@@ -9,7 +9,22 @@
 
 # GRC as Code Lab
 
-A hands-on training environment demonstrating how governance, risk, and compliance (GRC) can be implemented as code using modern cloud security tooling.
+## What This Is
+
+A production-style GRC-as-Code platform prototype that converts cloud misconfigurations into control failures, framework impacts, risk scores, and deployment decisions.
+
+Built to demonstrate how modern organisations can move from manual audits to continuous assurance.
+
+## Enterprise Control Coverage
+
+This platform currently evaluates multiple governance domains:
+
+- Storage Security
+- Identity & Access Management
+- Data Protection
+- Logging & Monitoring
+
+It produces a unified compliance score, risk score, and deployment decision across all control families.
 
 ![Terraform](https://img.shields.io/badge/Terraform-IaC-blue)
 ![OPA](https://img.shields.io/badge/OpenPolicyAgent-PolicyEngine-green)
@@ -21,6 +36,15 @@ A hands-on training environment demonstrating how governance, risk, and complian
 This repository demonstrates how **Governance, Risk, and Compliance (GRC)** controls can be implemented as code using modern cloud security tools.
 
 The project shows how traditional governance controls can be translated into **machine-enforced policies** enabling continuous compliance.
+
+## Evidence Trail
+
+The `evidence/` folder captures the progression of the platform:
+
+- Week 1 – Foundations of GRC as Code
+- Week 2 – Compliance Evaluation Report
+- Week 3 – Risk Engine Evidence
+- Week 4 – Enterprise Governance Evidence
 
 ## Course Roadmap
 ## Example Outcomes
@@ -204,7 +228,14 @@ This lab demonstrates several governance controls including:
 - S3 versioning required
 - Secure storage configuration
 
+## Evidence Trail
 
+The `evidence/` folder captures the progression of the platform:
+
+- Week 1 – Foundations of GRC as Code
+- Week 2 – Compliance Evaluation Report
+- Week 3 – Risk Engine Evidence
+- Week 4 – Enterprise Governance Evidence
 
 
 

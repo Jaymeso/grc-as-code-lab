@@ -48,4 +48,4 @@ Week 3 Evidence Notes
 - The lab demonstrated both a medium-risk review state and a high-risk deployment block state.
 
 Outcome
-Week 3 established risk-based decision making as part of the CI/CD governance model.
+Week 3 established risk-based decision making in the lab and demonstrated how governance systems can move from compliance reporting to deployment enforcement.
