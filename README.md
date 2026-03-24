@@ -114,6 +114,19 @@ The `evidence/` folder captures the progression of the platform:
 - Week 3 – Risk Engine Evidence
 - Week 4 – Enterprise Governance Evidence
 
+---
+## Business Value
+
+This platform demonstrates how organisations can:
+
+- move from manual compliance checks to continuous assurance
+- enforce governance through CI/CD pipelines
+- translate technical findings into executive-level risk decisions
+- generate machine-readable evidence for audit and assurance
+- apply one governance engine across multiple cloud control families
+
+For fintech and regulated environments, this supports faster release cycles without sacrificing governance discipline.
+
 ## Example Outcomes
 
 This lab demonstrates multiple governance states depending on infrastructure configuration.
@@ -139,6 +152,40 @@ This scenario reflects a partially compliant environment where issues exist but 
 - Decision: BLOCK DEPLOYMENT  
 
 This scenario demonstrates a critical misconfiguration where deployment must be stopped.
+
+---
+## Fintech Use Case
+
+This platform simulates a fintech cloud governance gate for infrastructure changes.
+
+### Scenario
+
+A trading platform is preparing to deploy infrastructure updates. Before release, the platform automatically evaluates:
+
+- Storage Security
+- Identity & Access Management
+- Data Protection
+- Logging & Monitoring
+
+The engine then determines whether the release should be:
+
+- **ALLOW**
+- **REVIEW REQUIRED**
+- **BLOCK DEPLOYMENT**
+
+### Example Governance Outcome
+
+A partially compliant deployment may produce:
+
+- Compliance Score: 50.00%
+- Risk Level: MEDIUM
+- Decision: REVIEW REQUIRED
+
+A high-risk deployment may produce:
+
+- Compliance Score: 20.00%
+- Risk Level: HIGH
+- Decision: BLOCK DEPLOYMENT
 
 ---
 
@@ -323,7 +370,15 @@ This training lab is developed and maintained by **Calm Resilience Security LTD*
 
 The goal is to demonstrate how modern organisations can move from manual compliance processes to **automated, continuous assurance**.
 
+## Who This Is For
 
+This prototype is relevant to:
+
+- Fintech platforms
+- Cloud-native regulated businesses
+- Security and GRC leaders
+- DevSecOps teams
+- Organisations aligning to ISO 27001, SOC 2, and NIST
 
 ---
 
