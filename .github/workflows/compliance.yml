@@ -1,9 +1,21 @@
-name: Compliance Scan
+name: GRC Compliance and Risk Pipeline
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   compliance:
@@ -20,24 +32,46 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install checkov pyyaml
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
       - name: Run Checkov JSON scan
         run: |
           checkov -d terraform --output json > checkov_results.json || true
 
-      - name: Run compliance and risk evaluation engine
+      - name: Run compliance and risk engine
         run: |
           python3 grc_engine.py
 
       - name: Generate dashboard
+        if: always()
         run: |
           python3 generate_dashboard.py
 
-      - name: Upload reports
+      - name: Upload reports artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: compliance-artifacts
           path: |
             evidence/week3_risk_report.txt
             evidence/dashboard.html
+
+      - name: Upload Pages artifact
+        if: always()
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy-pages:
+    if: github.ref == 'refs/heads/main'
+    needs: compliance
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

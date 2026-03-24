@@ -2,6 +2,9 @@ from pathlib import Path
 
 report_path = Path("evidence/week3_risk_report.txt")
 dashboard_path = Path("evidence/dashboard.html")
+pages_dir = Path("site")
+pages_dir.mkdir(exist_ok=True)
+pages_index = pages_dir / "index.html"
 
 report = report_path.read_text()
 
@@ -129,4 +132,6 @@ html_content = f"""
 """
 
 dashboard_path.write_text(html_content)
+pages_index.write_text(html_content)
 print(f"Dashboard generated: {dashboard_path}")
+print(f"Pages site generated: {pages_index}")
