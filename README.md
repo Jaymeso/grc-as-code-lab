@@ -47,6 +47,12 @@ The engine then determines whether the change should be:
 
 This demonstrates how regulated organisations can move from manual review to continuous, automated assurance.
 
+## Live Dashboard
+
+View the published executive governance dashboard here:
+
+[Executive Governance Dashboard](https://jaymeso.github.io/grc-as-code-lab/)
+
 ## Why This Matters
 
 In regulated cloud environments, technical misconfigurations are not just engineering issues — they can become governance, audit, and operational risk issues.
