@@ -28,7 +28,7 @@ jobs:
 
       - name: Run compliance and risk evaluation engine
         run: |
-          python3 evaluate_controls.py
+          python3 grc_engine.py
 
       - name: Generate dashboard
         run: |
