@@ -25,6 +25,28 @@ View the published executive governance dashboard here:
 
 [Executive Governance Dashboard](https://jaymeso.github.io/grc-as-code-lab/)
 
+## Client Overview
+
+This project demonstrates a GRC-as-Code approach for regulated cloud environments.
+
+It is designed to show how infrastructure risks can be translated into:
+
+- control failures
+- framework impact
+- compliance posture
+- risk-based deployment decisions
+- executive-facing governance reporting
+
+For fintech and other regulated organisations, this supports faster delivery while maintaining governance discipline.
+
+## Typical Client Use Cases
+
+- pre-deployment cloud governance checks
+- automated control testing in CI/CD
+- risk-based release gating
+- executive reporting for security and compliance stakeholders
+- internal prototyping of compliance engineering capabilities
+
 ## Enterprise Control Coverage
 
 This platform currently evaluates multiple governance domains:
@@ -430,6 +452,15 @@ This prototype is relevant to:
 - Organisations aligning to ISO 27001, SOC 2, and NIST
 
 ---
+## Example Engagement Outcome
+
+A client using this architecture could achieve:
+
+- automated evaluation of cloud control baselines
+- consistent risk scoring across infrastructure changes
+- evidence generation for audit and assurance
+- a published governance dashboard for internal review
+- reduced dependence on manual point-in-time compliance checks
 
 ## Commercial Use & Services
 
