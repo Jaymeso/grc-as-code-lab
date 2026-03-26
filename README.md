@@ -11,9 +11,19 @@
 
 ## What This Is
 
-A production-style GRC-as-Code platform prototype that converts cloud misconfigurations into control failures, framework impacts, risk scores, and deployment decisions.
+A production-style GRC-as-Code platform prototype that converts cloud misconfigurations into control failures, framework impacts, compliance posture, risk scores, and deployment decisions.
 
 Built to demonstrate how modern organisations can move from manual audits to continuous assurance.
+
+## Current Release
+
+**Latest release:** `v1.0-enterprise-governance`
+
+## Live Dashboard
+
+View the published executive governance dashboard here:
+
+[Executive Governance Dashboard](https://jaymeso.github.io/grc-as-code-lab/)
 
 ## Enterprise Control Coverage
 
@@ -47,12 +57,6 @@ The engine then determines whether the change should be:
 
 This demonstrates how regulated organisations can move from manual review to continuous, automated assurance.
 
-## Live Dashboard
-
-View the published executive governance dashboard here:
-
-[Executive Governance Dashboard](https://jaymeso.github.io/grc-as-code-lab/)
-
 ## Why This Matters
 
 In regulated cloud environments, technical misconfigurations are not just engineering issues — they can become governance, audit, and operational risk issues.
@@ -66,145 +70,6 @@ This prototype demonstrates how infrastructure findings can be translated into:
 - deployment decision
 
 This allows security and GRC teams to embed governance directly into delivery pipelines.
-
-## Why This Matters
-
-In regulated cloud environments, technical misconfigurations are not just engineering issues — they can become governance, audit, and operational risk issues.
-
-This prototype demonstrates how infrastructure findings can be translated into:
-
-- control failures
-- framework impact
-- compliance posture
-- risk score
-- deployment decision
-
-This allows security and GRC teams to embed governance directly into delivery pipelines.
-
-## What the Platform Produces
-
-For each infrastructure evaluation, the platform produces:
-
-- Control-level pass/fail results
-- Framework summaries across ISO 27001, SOC 2, and NIST
-- Compliance score
-- Risk score and risk level
-- Deployment decision
-- Evidence reports
-- Executive summary
-
-## Example Outcome
-
-### Medium-Risk Scenario
-- Compliance Score: 50.00%
-- Risk Level: MEDIUM
-- Decision: REVIEW REQUIRED
-
-### High-Risk Scenario
-- Compliance Score: 20.00%
-- Risk Level: HIGH
-- Decision: BLOCK DEPLOYMENT
-
-These scenarios show how the platform supports graduated governance decisions rather than binary pass/fail reporting.
-
-## Who This Is For
-
-This prototype is relevant to:
-
-- Fintech and regulated cloud platforms
-- Security and GRC leaders
-- DevSecOps teams
-- Internal audit and assurance functions
-- Organisations aligning to ISO 27001, SOC 2, and NIST
-
-## Implementation Use Cases
-
-This architecture can be adapted for organisations that want to:
-
-- gate infrastructure changes through governance policy
-- automate control evaluation across cloud environments
-- generate machine-readable assurance evidence
-- introduce risk-based release decisions into CI/CD
-- prototype internal compliance engineering capabilities
-
-![Terraform](https://img.shields.io/badge/Terraform-IaC-blue)
-![OPA](https://img.shields.io/badge/OpenPolicyAgent-PolicyEngine-green)
-![Checkov](https://img.shields.io/badge/Checkov-ComplianceScanner-orange)
-![Security](https://img.shields.io/badge/Security-GRC%20as%20Code-red)
-
-## Overview
-
-This repository demonstrates how **Governance, Risk, and Compliance (GRC)** controls can be implemented as code using modern cloud security tools.
-
-The project shows how traditional governance controls can be translated into **machine-enforced policies** enabling continuous compliance.
-
-### Course Roadmap
-This repository is structured as a progressive GRC engineering training programme.
-
-### Week 1 – Foundations: GRC as Code
-
-- Infrastructure as Code (Terraform)
-- Policy as Code (OPA)
-- Compliance Scanning (Checkov)
-- Control Definition (YAML)
-- Evidence capture
-
-Outcome:
-- Detect misconfigurations
-- Understand control enforcement
-
----
-
-### Week 2 – Compliance Engine & Automation
-
-- Checkov JSON parsing
-- Control mapping engine (Python)
-- Framework mapping (ISO27001 / SOC2 / NIST)
-- Compliance scoring
-- GitHub Actions integration
-- Automated evidence generation
-
-Outcome:
-- Translate technical findings into compliance posture
-- Generate audit-ready evidence automatically
-
----
-
-### Week 3 – Risk Engine
-
-- Risk weighting per control
-- Total risk score calculation
-- Risk classification (LOW / MEDIUM / HIGH)
-- Deployment decision logic
-
-Outcome:
-- Move from compliance reporting to risk-based governance
-
----
-
-### Week 4 – Enterprise GRC Architecture
-
-- Expanded from single-family controls to multi-family governance
-- Added IAM control family
-- Added Data Protection control family
-- Added Logging & Monitoring control family
-- Unified enterprise risk scoring across multiple domains
-
-Outcome:
-- Aggregate risk across storage, identity, data protection, and logging
-- Produce a single governance decision across multiple control families
-
----
-
-### Week 5 – Client-Ready Fintech Use Case
-
-- Fintech governance scenario
-- Executive-style reporting
-- Product-style repo positioning
-- Business-value framing
-
-Outcome:
-- Turn the lab into a client-ready governance product prototype
 
 ## Evidence Trail
 
