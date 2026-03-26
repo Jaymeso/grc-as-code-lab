@@ -71,6 +71,31 @@ This prototype demonstrates how infrastructure findings can be translated into:
 
 This allows security and GRC teams to embed governance directly into delivery pipelines.
 
+## Business Value
+
+This platform demonstrates how organisations can:
+
+- move from manual compliance checks to continuous assurance
+- enforce governance through CI/CD pipelines
+- translate technical findings into executive-level risk decisions
+- generate machine-readable evidence for audit and assurance
+- apply one governance engine across multiple cloud control families   
+
+For fintech and regulated environments, this supports faster release cycles without sacrificing governance discipline.
+
+## What the Platform Produces
+
+For each infrastructure evaluation, the platform produces:
+
+- Control-level pass/fail results
+- Framework summaries across ISO 27001, SOC 2, and NIST
+- Compliance score
+- Risk score and risk level
+- Deployment decision
+- Evidence reports
+- Executive summary
+- Live dashboard output
+
 ## Course Roadmap
 
 This repository is structured as a progressive GRC engineering training programme.
@@ -150,17 +175,6 @@ The `evidence/` folder captures the progression of the platform:
 - Week 4 – Enterprise Governance Evidence
 
 ---
-## Business Value
-
-This platform demonstrates how organisations can:
-
-- move from manual compliance checks to continuous assurance
-- enforce governance through CI/CD pipelines
-- translate technical findings into executive-level risk decisions
-- generate machine-readable evidence for audit and assurance
-- apply one governance engine across multiple cloud control families
-
-For fintech and regulated environments, this supports faster release cycles without sacrificing governance discipline.
 
 ## Example Outcomes
 
