@@ -1,0 +1,15 @@
+control_family:
+  id: AWS-RESILIENCE
+  name: Resilience and Recovery Controls
+
+controls:
+  - id: GRC-501
+    name: S3 Buckets Must Support Recovery
+    severity: MEDIUM
+    risk_weight: 25
+    frameworks:
+      ISO27001: A.8.13
+      SOC2: CC7
+      NIST: CP-10
+    enforcement:
+      checkov: CKV_AWS_21

@@ -1,104 +1,121 @@
 import json
+import sys
+from pathlib import Path
+
 import yaml
 
-# -----------------------------
-# Risk counters
-# -----------------------------
+
+REPORT_PATH = Path("evidence/week3_risk_report.txt")
+CHECKOV_RESULTS_PATH = Path("checkov_results.json")
+CONTROLS_DIR = Path("controls")
+
+
+def load_failed_checks():
+    with CHECKOV_RESULTS_PATH.open() as file_handle:
+        checkov_data = json.load(file_handle)
+
+    return {
+        check["check_id"]
+        for check in checkov_data["results"]["failed_checks"]
+    }
+
+
+def load_controls():
+    controls_by_id = {}
+
+    for file_path in sorted(CONTROLS_DIR.glob("*.yaml")):
+        with file_path.open() as file_handle:
+            control_data = yaml.safe_load(file_handle) or {}
+
+        for control in control_data.get("controls", []):
+            control_copy = dict(control)
+            control_copy["source_file"] = file_path.name
+            control_id = control_copy["id"]
+            existing_control = controls_by_id.get(control_id)
+
+            if existing_control is None:
+                controls_by_id[control_id] = control_copy
+                continue
+
+            existing_score = score_control_definition(existing_control)
+            current_score = score_control_definition(control_copy)
+
+            if current_score >= existing_score:
+                controls_by_id[control_id] = control_copy
+
+    return list(controls_by_id.values())
+
+
+def score_control_definition(control):
+    enforcement = control.get("enforcement", {})
+
+    return (
+        3 * int("checkov" in enforcement)
+        + 2 * int("severity" in control)
+        + int("objective" in control)
+        + len(control)
+    )
+
+
+def resolve_checkov_id(control):
+    enforcement = control.get("enforcement", {})
+
+    if "checkov" in enforcement:
+        return enforcement["checkov"]
+
+    # Older baseline controls used OPA policy references without a direct
+    # Checkov ID. Keep known mappings here so both control formats work.
+    legacy_policy_map = {
+        "policies/s3_public.rego": "CKV_AWS_20",
+        "policies/s3_versioning.rego": "CKV_AWS_21",
+    }
+
+    return legacy_policy_map.get(enforcement.get("opa_policy"))
+
+
+failed_checks = load_failed_checks()
+controls = load_controls()
+results = []
+framework_summary = {}
 total_risk_score = 0
 max_possible_risk = 0
 
-# -----------------------------
-# Load Checkov results
-# -----------------------------
-with open("checkov_results.json") as f:
-    checkov_data = json.load(f)
-
-failed_checks = [
-    check["check_id"]
-    for check in checkov_data["results"]["failed_checks"]
-]
-
-# -----------------------------
-# Load control definitions
-# -----------------------------
-control_files = [
-    "controls/control_taxonomy.yaml",
-    "controls/iam_controls.yaml",
-    "controls/data_protection.yaml",
-    "controls/logging_controls.yaml"
-]
-
-controls = []
-
-for file_path in control_files:
-    with open(file_path) as f:
-        control_data = yaml.safe_load(f)
-        controls.extend(control_data["controls"])
-results = []
-# -----------------------------
-# Evaluate controls
-# -----------------------------
 for control in controls:
-    checkov_id = control["enforcement"]["checkov"]
-
+    checkov_id = resolve_checkov_id(control)
     status = "PASS"
-    if checkov_id in failed_checks:
+
+    if checkov_id and checkov_id in failed_checks:
         status = "FAIL"
 
     risk_weight = control.get("risk_weight", 0)
-    max_possible_risk += risk_weight
+    severity = control.get("severity", "MEDIUM")
+    frameworks = control.get("frameworks", {})
 
+    max_possible_risk += risk_weight
     if status == "FAIL":
         total_risk_score += risk_weight
 
-    results.append({
-        "control_id": control["id"],
-        "name": control["name"],
-        "status": status,
-        "frameworks": control["frameworks"],
-        "severity": control["severity"],
-        "risk_weight": risk_weight
-    })
-
-# -----------------------------
-# Compliance score
-# -----------------------------
-total = len(results)
-passed = len([r for r in results if r["status"] == "PASS"])
-score = (passed / total) * 100 if total > 0 else 0
-
-# -----------------------------
-# Print compliance report
-# -----------------------------
-print("\n=== COMPLIANCE REPORT ===\n")
-
-for r in results:
-    print(f"{r['control_id']} - {r['name']}: {r['status']} ({r['severity']})")
-
-# -----------------------------
-# Framework summary
-# -----------------------------
-framework_summary = {}
-
-for r in results:
-    for framework in r["frameworks"]:
+    for framework in frameworks:
         if framework not in framework_summary:
             framework_summary[framework] = {"PASS": 0, "FAIL": 0}
+        framework_summary[framework][status] += 1
 
-        framework_summary[framework][r["status"]] += 1
+    results.append(
+        {
+            "control_id": control["id"],
+            "name": control["name"],
+            "status": status,
+            "frameworks": frameworks,
+            "severity": severity,
+            "risk_weight": risk_weight,
+            "checkov_id": checkov_id or "UNMAPPED",
+            "source_file": control["source_file"],
+        }
+    )
 
-print("\n=== FRAMEWORK SUMMARY ===\n")
-
-for fw, counts in framework_summary.items():
-    print(f"{fw}: {counts}")
-
-print(f"\nCompliance Score: {score:.2f}%")
-
-# -----------------------------
-# Risk summary
-# -----------------------------
-print("\n=== RISK SUMMARY ===\n")
-print(f"Total Risk Score: {total_risk_score}")
+total = len(results)
+passed = len([result for result in results if result["status"] == "PASS"])
+score = (passed / total) * 100 if total > 0 else 0
 
 if total_risk_score >= 50:
     risk_level = "HIGH"
@@ -107,8 +124,6 @@ elif total_risk_score >= 20:
 else:
     risk_level = "LOW"
 
-print(f"Risk Level: {risk_level}")
-
 if risk_level == "HIGH":
     decision = "BLOCK DEPLOYMENT"
 elif risk_level == "MEDIUM":
@@ -116,30 +131,41 @@ elif risk_level == "MEDIUM":
 else:
     decision = "ALLOW"
 
+print("\n=== COMPLIANCE REPORT ===\n")
+for result in results:
+    print(
+        f"{result['control_id']} - {result['name']}: "
+        f"{result['status']} ({result['severity']})"
+    )
+
+print("\n=== FRAMEWORK SUMMARY ===\n")
+for framework, counts in framework_summary.items():
+    print(f"{framework}: {counts}")
+
+print(f"\nCompliance Score: {score:.2f}%")
+
+print("\n=== RISK SUMMARY ===\n")
+print(f"Total Risk Score: {total_risk_score}")
+print(f"Risk Level: {risk_level}")
 print(f"\nDecision: {decision}")
 
-# -----------------------------
-# Save evidence file
-# -----------------------------
-with open("evidence/week3_risk_report.txt", "w") as f:
-    f.write("=== COMPLIANCE REPORT ===\n\n")
+with REPORT_PATH.open("w") as file_handle:
+    file_handle.write("=== COMPLIANCE REPORT ===\n\n")
+    for result in results:
+        file_handle.write(
+            f"{result['control_id']} - {result['name']}: "
+            f"{result['status']} ({result['severity']})\n"
+        )
 
-    for r in results:
-        f.write(f"{r['control_id']} - {r['name']}: {r['status']} ({r['severity']})\n")
+    file_handle.write("\n=== FRAMEWORK SUMMARY ===\n\n")
+    for framework, counts in framework_summary.items():
+        file_handle.write(f"{framework}: {counts}\n")
 
-    f.write("\n=== FRAMEWORK SUMMARY ===\n\n")
-
-    for fw, counts in framework_summary.items():
-        f.write(f"{fw}: {counts}\n")
-
-    f.write(f"\nCompliance Score: {score:.2f}%\n")
-
-    f.write("\n=== RISK SUMMARY ===\n\n")
-    f.write(f"Total Risk Score: {total_risk_score}\n")
-    f.write(f"Risk Level: {risk_level}\n")
-    f.write(f"Decision: {decision}\n")
-
-import sys
+    file_handle.write(f"\nCompliance Score: {score:.2f}%\n")
+    file_handle.write("\n=== RISK SUMMARY ===\n\n")
+    file_handle.write(f"Total Risk Score: {total_risk_score}\n")
+    file_handle.write(f"Risk Level: {risk_level}\n")
+    file_handle.write(f"Decision: {decision}\n")
 
 if decision == "BLOCK DEPLOYMENT":
     sys.exit(1)

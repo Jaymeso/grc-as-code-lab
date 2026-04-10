@@ -1,0 +1,15 @@
+control_family:
+  id: APP-SECURE-ENGINEERING
+  name: Secure Engineering Controls
+
+controls:
+  - id: GRC-701
+    name: Secure Development Requirements Must Be Defined
+    severity: MEDIUM
+    risk_weight: 20
+    frameworks:
+      ISO27001: A.8.25
+      SOC2: CC8
+      NIST: SA-3
+    enforcement:
+      checkov: CKV_GHA_7

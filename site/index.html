@@ -1,0 +1,132 @@
+
+<html>
+<head>
+    <title>Calm Resilience Security LTD - Executive Governance Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0d1117;
+            color: #e6edf3;
+            padding: 40px;
+            max-width: 1100px;
+            margin: auto;
+        }
+        h1 {
+            color: #58a6ff;
+            margin-bottom: 4px;
+        }
+        h2 {
+            color: #8b949e;
+            font-weight: normal;
+            margin-top: 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .card {
+            background: #161b22;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #30363d;
+        }
+        .label {
+            color: #8b949e;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .value {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .section {
+            background: #161b22;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #30363d;
+            margin-top: 20px;
+        }
+        pre {
+            white-space: pre-wrap;
+            margin: 0;
+        }
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calm Resilience Security LTD</h1>
+    <h2>Executive Governance Dashboard</h2>
+
+    <div class="grid">
+        <div class="card">
+            <div class="label">Compliance Score</div>
+            <div class="value">44.44%</div>
+        </div>
+        <div class="card">
+            <div class="label">Risk Level</div>
+            <div class="value">HIGH</div>
+        </div>
+        <div class="card">
+            <div class="label">Decision</div>
+            <div class="value">BLOCK DEPLOYMENT</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Executive Summary</h3>
+        <p>
+            This dashboard summarises the governance posture of a simulated fintech infrastructure deployment.
+            The platform evaluates controls across storage, identity, data protection, and logging domains,
+            then produces a compliance score, risk level, and release decision.
+        </p>
+    </div>
+
+    <div class="section">
+        <h3>Recommended Actions</h3>
+        
+<ul>
+  <li>Review failed controls and prioritise remediation by severity.</li>
+  <li>Remove overly permissive IAM access.</li>
+  <li>Enable KMS-backed encryption for S3 storage.</li>
+  <li>Enable S3 access logging and versioning.</li>
+  <li>Re-run the governance pipeline before release.</li>
+</ul>
+
+    </div>
+
+    <div class="section">
+        <h3>Detailed Technical Report</h3>
+        <pre>=== COMPLIANCE REPORT ===
+
+GRC-401 - Approved Cloud Services Must Be Governed: PASS (HIGH)
+GRC-001 - Public S3 Buckets Prohibited: PASS (HIGH)
+GRC-002 - S3 Versioning Required: FAIL (MEDIUM)
+GRC-201 - S3 Buckets Must Use KMS Encryption: FAIL (HIGH)
+GRC-101 - No Wildcard IAM Policies: FAIL (HIGH)
+GRC-301 - S3 Buckets Must Have Access Logging Enabled: FAIL (MEDIUM)
+GRC-601 - Public Network Exposure Must Be Restricted: PASS (HIGH)
+GRC-501 - S3 Buckets Must Support Recovery: FAIL (MEDIUM)
+GRC-701 - Secure Development Requirements Must Be Defined: PASS (MEDIUM)
+
+=== FRAMEWORK SUMMARY ===
+
+ISO27001: {'PASS': 4, 'FAIL': 5}
+SOC2: {'PASS': 4, 'FAIL': 5}
+NIST: {'PASS': 4, 'FAIL': 5}
+
+Compliance Score: 44.44%
+
+=== RISK SUMMARY ===
+
+Total Risk Score: 170
+Risk Level: HIGH
+Decision: BLOCK DEPLOYMENT
+</pre>
+    </div>
+</body>
+</html>
