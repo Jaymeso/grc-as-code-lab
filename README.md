@@ -17,7 +17,7 @@ Built to demonstrate how modern organisations can move from manual audits to con
 
 ## Current Release
 
-**Latest release:** `v1.0-enterprise-governance`
+**Latest release:** `v1.1-expanded-controls`
 
 ## Live Dashboard
 
