@@ -1,0 +1,15 @@
+control_family:
+  id: AWS-NETWORK
+  name: Network Security Controls
+
+controls:
+  - id: GRC-601
+    name: Public Network Exposure Must Be Restricted
+    severity: HIGH
+    risk_weight: 45
+    frameworks:
+      ISO27001: A.8.20
+      SOC2: CC6
+      NIST: SC-7
+    enforcement:
+      checkov: CKV_AWS_24

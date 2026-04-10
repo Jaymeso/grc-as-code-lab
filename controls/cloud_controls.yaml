@@ -1,0 +1,15 @@
+control_family:
+  id: AWS-CLOUD-GOVERNANCE
+  name: Cloud Governance Controls
+
+controls:
+  - id: GRC-401
+    name: Approved Cloud Services Must Be Governed
+    severity: HIGH
+    risk_weight: 40
+    frameworks:
+      ISO27001: A.5.23
+      SOC2: CC3
+      NIST: SA-9
+    enforcement:
+      checkov: CKV_AWS_79
