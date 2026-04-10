@@ -330,18 +330,18 @@
         <section class="metrics">
             <article class="metric-card">
                 <div class="metric-label">Compliance Score</div>
-                <div class="metric-value">22.22%</div>
-                <div class="metric-subtle">2 of 9 assessed controls passing</div>
+                <div class="metric-value">44.44%</div>
+                <div class="metric-subtle">4 of 9 assessed controls passing</div>
             </article>
             <article class="metric-card">
                 <div class="metric-label">Risk Level</div>
                 <div class="metric-value">HIGH</div>
-                <div class="metric-subtle">Aggregate risk score: 255</div>
+                <div class="metric-subtle">Aggregate risk score: 180</div>
             </article>
             <article class="metric-card">
                 <div class="metric-label">Decision</div>
                 <div class="metric-value">BLOCK DEPLOYMENT</div>
-                <div class="metric-subtle">7 failed controls require action</div>
+                <div class="metric-subtle">5 failed controls require action</div>
             </article>
             <article class="metric-card">
                 <div class="metric-label">Evidence Coverage</div>
@@ -367,19 +367,19 @@
                     
             <div class="mini-card">
               <div class="mini-label">ISO27001</div>
-              <div class="mini-value">{&#x27;PASS&#x27;: 2, &#x27;FAIL&#x27;: 7, &#x27;NOT EVIDENCED&#x27;: 0}</div>
+              <div class="mini-value">{&#x27;PASS&#x27;: 4, &#x27;FAIL&#x27;: 5, &#x27;NOT EVIDENCED&#x27;: 0}</div>
             </div>
             
 
             <div class="mini-card">
               <div class="mini-label">SOC2</div>
-              <div class="mini-value">{&#x27;PASS&#x27;: 2, &#x27;FAIL&#x27;: 7, &#x27;NOT EVIDENCED&#x27;: 0}</div>
+              <div class="mini-value">{&#x27;PASS&#x27;: 4, &#x27;FAIL&#x27;: 5, &#x27;NOT EVIDENCED&#x27;: 0}</div>
             </div>
             
 
             <div class="mini-card">
               <div class="mini-label">NIST</div>
-              <div class="mini-value">{&#x27;PASS&#x27;: 2, &#x27;FAIL&#x27;: 7, &#x27;NOT EVIDENCED&#x27;: 0}</div>
+              <div class="mini-value">{&#x27;PASS&#x27;: 4, &#x27;FAIL&#x27;: 5, &#x27;NOT EVIDENCED&#x27;: 0}</div>
             </div>
             
                 </div>
@@ -394,8 +394,7 @@
                     <li>Turn on S3 versioning to support rollback, recovery, and retention needs.</li>
 <li>Apply KMS-backed encryption to S3 storage used for regulated data.</li>
 <li>Remove wildcard IAM permissions and tighten least-privilege boundaries.</li>
-<li>Enable S3 access logging to improve monitoring and audit visibility.</li>
-<li>Limit public network exposure and verify ingress restrictions.</li>
+<li>Strengthen recovery controls to improve resilience and restore capability.</li>
                 </ul>
             </aside>
         </section>
@@ -459,7 +458,7 @@
             <tr>
               <td class="control-id">GRC-301</td>
               <td>S3 Buckets Must Have Access Logging Enabled</td>
-              <td><span class="badge status fail">FAIL</span></td>
+              <td><span class="badge status pass">PASS</span></td>
               <td><span class="badge severity severity-medium">MEDIUM</span></td>
             </tr>
             
@@ -467,7 +466,7 @@
             <tr>
               <td class="control-id">GRC-601</td>
               <td>Public Network Exposure Must Be Restricted</td>
-              <td><span class="badge status fail">FAIL</span></td>
+              <td><span class="badge status pass">PASS</span></td>
               <td><span class="badge severity severity-high">HIGH</span></td>
             </tr>
             
@@ -503,18 +502,18 @@ GRC-001 - Public S3 Buckets Prohibited: PASS (HIGH)
 GRC-002 - S3 Versioning Required: FAIL (MEDIUM)
 GRC-201 - S3 Buckets Must Use KMS Encryption: FAIL (HIGH)
 GRC-101 - No Wildcard IAM Policies: FAIL (HIGH)
-GRC-301 - S3 Buckets Must Have Access Logging Enabled: FAIL (MEDIUM)
-GRC-601 - Public Network Exposure Must Be Restricted: FAIL (HIGH)
+GRC-301 - S3 Buckets Must Have Access Logging Enabled: PASS (MEDIUM)
+GRC-601 - Public Network Exposure Must Be Restricted: PASS (HIGH)
 GRC-501 - S3 Buckets Must Support Recovery: FAIL (MEDIUM)
 GRC-701 - Secure Development Requirements Must Be Defined: PASS (MEDIUM)
 
 === FRAMEWORK SUMMARY ===
 
-ISO27001: {&#x27;PASS&#x27;: 2, &#x27;FAIL&#x27;: 7, &#x27;NOT EVIDENCED&#x27;: 0}
-SOC2: {&#x27;PASS&#x27;: 2, &#x27;FAIL&#x27;: 7, &#x27;NOT EVIDENCED&#x27;: 0}
-NIST: {&#x27;PASS&#x27;: 2, &#x27;FAIL&#x27;: 7, &#x27;NOT EVIDENCED&#x27;: 0}
+ISO27001: {&#x27;PASS&#x27;: 4, &#x27;FAIL&#x27;: 5, &#x27;NOT EVIDENCED&#x27;: 0}
+SOC2: {&#x27;PASS&#x27;: 4, &#x27;FAIL&#x27;: 5, &#x27;NOT EVIDENCED&#x27;: 0}
+NIST: {&#x27;PASS&#x27;: 4, &#x27;FAIL&#x27;: 5, &#x27;NOT EVIDENCED&#x27;: 0}
 
-Compliance Score: 22.22%
+Compliance Score: 44.44%
 
 === EVIDENCE COVERAGE ===
 
@@ -523,7 +522,7 @@ Controls Not Evidenced: 0
 
 === RISK SUMMARY ===
 
-Total Risk Score: 255
+Total Risk Score: 180
 Risk Level: HIGH
 Decision: BLOCK DEPLOYMENT
 </pre>

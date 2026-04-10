@@ -5,18 +5,18 @@ GRC-001 - Public S3 Buckets Prohibited: PASS (HIGH)
 GRC-002 - S3 Versioning Required: FAIL (MEDIUM)
 GRC-201 - S3 Buckets Must Use KMS Encryption: FAIL (HIGH)
 GRC-101 - No Wildcard IAM Policies: FAIL (HIGH)
-GRC-301 - S3 Buckets Must Have Access Logging Enabled: FAIL (MEDIUM)
-GRC-601 - Public Network Exposure Must Be Restricted: FAIL (HIGH)
+GRC-301 - S3 Buckets Must Have Access Logging Enabled: PASS (MEDIUM)
+GRC-601 - Public Network Exposure Must Be Restricted: PASS (HIGH)
 GRC-501 - S3 Buckets Must Support Recovery: FAIL (MEDIUM)
 GRC-701 - Secure Development Requirements Must Be Defined: PASS (MEDIUM)
 
 === FRAMEWORK SUMMARY ===
 
-ISO27001: {'PASS': 2, 'FAIL': 7, 'NOT EVIDENCED': 0}
-SOC2: {'PASS': 2, 'FAIL': 7, 'NOT EVIDENCED': 0}
-NIST: {'PASS': 2, 'FAIL': 7, 'NOT EVIDENCED': 0}
+ISO27001: {'PASS': 4, 'FAIL': 5, 'NOT EVIDENCED': 0}
+SOC2: {'PASS': 4, 'FAIL': 5, 'NOT EVIDENCED': 0}
+NIST: {'PASS': 4, 'FAIL': 5, 'NOT EVIDENCED': 0}
 
-Compliance Score: 22.22%
+Compliance Score: 44.44%
 
 === EVIDENCE COVERAGE ===
 
@@ -25,6 +25,6 @@ Controls Not Evidenced: 0
 
 === RISK SUMMARY ===
 
-Total Risk Score: 255
+Total Risk Score: 180
 Risk Level: HIGH
 Decision: BLOCK DEPLOYMENT
