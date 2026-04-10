@@ -10,14 +10,47 @@ CHECKOV_RESULTS_PATH = Path("checkov_results.json")
 CONTROLS_DIR = Path("controls")
 
 
-def load_failed_checks():
+def load_check_sets():
     with CHECKOV_RESULTS_PATH.open() as file_handle:
         checkov_data = json.load(file_handle)
 
-    return {
+    failed_checks = {
         check["check_id"]
         for check in checkov_data["results"]["failed_checks"]
     }
+    passed_checks = {
+        check["check_id"]
+        for check in checkov_data["results"]["passed_checks"]
+    }
+
+    return failed_checks, passed_checks
+
+
+def resolve_checkov_id(control):
+    enforcement = control.get("enforcement", {})
+
+    if "checkov" in enforcement:
+        return enforcement["checkov"]
+
+    # Older baseline controls used OPA policy references without a direct
+    # Checkov ID. Keep known mappings here so both control formats work.
+    legacy_policy_map = {
+        "policies/s3_public.rego": "CKV_AWS_20",
+        "policies/s3_versioning.rego": "CKV_AWS_21",
+    }
+
+    return legacy_policy_map.get(enforcement.get("opa_policy"))
+
+
+def score_control_definition(control):
+    enforcement = control.get("enforcement", {})
+
+    return (
+        3 * int("checkov" in enforcement)
+        + 2 * int("severity" in control)
+        + int("objective" in control)
+        + len(control)
+    )
 
 
 def load_controls():
@@ -46,34 +79,7 @@ def load_controls():
     return list(controls_by_id.values())
 
 
-def score_control_definition(control):
-    enforcement = control.get("enforcement", {})
-
-    return (
-        3 * int("checkov" in enforcement)
-        + 2 * int("severity" in control)
-        + int("objective" in control)
-        + len(control)
-    )
-
-
-def resolve_checkov_id(control):
-    enforcement = control.get("enforcement", {})
-
-    if "checkov" in enforcement:
-        return enforcement["checkov"]
-
-    # Older baseline controls used OPA policy references without a direct
-    # Checkov ID. Keep known mappings here so both control formats work.
-    legacy_policy_map = {
-        "policies/s3_public.rego": "CKV_AWS_20",
-        "policies/s3_versioning.rego": "CKV_AWS_21",
-    }
-
-    return legacy_policy_map.get(enforcement.get("opa_policy"))
-
-
-failed_checks = load_failed_checks()
+failed_checks, passed_checks = load_check_sets()
 controls = load_controls()
 results = []
 framework_summary = {}
@@ -82,22 +88,29 @@ max_possible_risk = 0
 
 for control in controls:
     checkov_id = resolve_checkov_id(control)
-    status = "PASS"
+    status = "NOT EVIDENCED"
 
-    if checkov_id and checkov_id in failed_checks:
+    if checkov_id in failed_checks:
         status = "FAIL"
+    elif checkov_id in passed_checks:
+        status = "PASS"
 
     risk_weight = control.get("risk_weight", 0)
     severity = control.get("severity", "MEDIUM")
     frameworks = control.get("frameworks", {})
 
-    max_possible_risk += risk_weight
+    if status in {"PASS", "FAIL"}:
+        max_possible_risk += risk_weight
     if status == "FAIL":
         total_risk_score += risk_weight
 
     for framework in frameworks:
         if framework not in framework_summary:
-            framework_summary[framework] = {"PASS": 0, "FAIL": 0}
+            framework_summary[framework] = {
+                "PASS": 0,
+                "FAIL": 0,
+                "NOT EVIDENCED": 0,
+            }
         framework_summary[framework][status] += 1
 
     results.append(
@@ -113,8 +126,10 @@ for control in controls:
         }
     )
 
-total = len(results)
-passed = len([result for result in results if result["status"] == "PASS"])
+assessed_results = [result for result in results if result["status"] in {"PASS", "FAIL"}]
+total = len(assessed_results)
+passed = len([result for result in assessed_results if result["status"] == "PASS"])
+not_evidenced = len([result for result in results if result["status"] == "NOT EVIDENCED"])
 score = (passed / total) * 100 if total > 0 else 0
 
 if total_risk_score >= 50:
@@ -124,7 +139,9 @@ elif total_risk_score >= 20:
 else:
     risk_level = "LOW"
 
-if risk_level == "HIGH":
+if total == 0:
+    decision = "INSUFFICIENT EVIDENCE"
+elif risk_level == "HIGH":
     decision = "BLOCK DEPLOYMENT"
 elif risk_level == "MEDIUM":
     decision = "REVIEW REQUIRED"
@@ -144,6 +161,10 @@ for framework, counts in framework_summary.items():
 
 print(f"\nCompliance Score: {score:.2f}%")
 
+print("\n=== EVIDENCE COVERAGE ===\n")
+print(f"Controls Assessed: {total}")
+print(f"Controls Not Evidenced: {not_evidenced}")
+
 print("\n=== RISK SUMMARY ===\n")
 print(f"Total Risk Score: {total_risk_score}")
 print(f"Risk Level: {risk_level}")
@@ -162,6 +183,9 @@ with REPORT_PATH.open("w") as file_handle:
         file_handle.write(f"{framework}: {counts}\n")
 
     file_handle.write(f"\nCompliance Score: {score:.2f}%\n")
+    file_handle.write("\n=== EVIDENCE COVERAGE ===\n\n")
+    file_handle.write(f"Controls Assessed: {total}\n")
+    file_handle.write(f"Controls Not Evidenced: {not_evidenced}\n")
     file_handle.write("\n=== RISK SUMMARY ===\n\n")
     file_handle.write(f"Total Risk Score: {total_risk_score}\n")
     file_handle.write(f"Risk Level: {risk_level}\n")

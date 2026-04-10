@@ -192,6 +192,8 @@ The `evidence/` folder captures the platform progression:
 
 A full instructor guide for running the lab in a training environment is available at [docs/grc-as-code-training-manual.md](docs/grc-as-code-training-manual.md).
 
+For a short live walkthrough, use [docs/demo-script.md](docs/demo-script.md).
+
 ## Who This Is For
 
 This prototype is relevant to:
