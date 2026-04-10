@@ -1,0 +1,17 @@
+name: Manual Governance Review
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  governance-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Confirm governance review entry point
+        run: echo "Manual governance review workflow is ready."

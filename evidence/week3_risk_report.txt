@@ -1,30 +1,30 @@
 === COMPLIANCE REPORT ===
 
-GRC-401 - Approved Cloud Services Must Be Governed: NOT EVIDENCED (HIGH)
+GRC-401 - Approved Cloud Services Must Be Governed: FAIL (HIGH)
 GRC-001 - Public S3 Buckets Prohibited: PASS (HIGH)
 GRC-002 - S3 Versioning Required: FAIL (MEDIUM)
 GRC-201 - S3 Buckets Must Use KMS Encryption: FAIL (HIGH)
 GRC-101 - No Wildcard IAM Policies: FAIL (HIGH)
 GRC-301 - S3 Buckets Must Have Access Logging Enabled: FAIL (MEDIUM)
-GRC-601 - Public Network Exposure Must Be Restricted: NOT EVIDENCED (HIGH)
+GRC-601 - Public Network Exposure Must Be Restricted: FAIL (HIGH)
 GRC-501 - S3 Buckets Must Support Recovery: FAIL (MEDIUM)
-GRC-701 - Secure Development Requirements Must Be Defined: NOT EVIDENCED (MEDIUM)
+GRC-701 - Secure Development Requirements Must Be Defined: PASS (MEDIUM)
 
 === FRAMEWORK SUMMARY ===
 
-ISO27001: {'PASS': 1, 'FAIL': 5, 'NOT EVIDENCED': 3}
-SOC2: {'PASS': 1, 'FAIL': 5, 'NOT EVIDENCED': 3}
-NIST: {'PASS': 1, 'FAIL': 5, 'NOT EVIDENCED': 3}
+ISO27001: {'PASS': 2, 'FAIL': 7, 'NOT EVIDENCED': 0}
+SOC2: {'PASS': 2, 'FAIL': 7, 'NOT EVIDENCED': 0}
+NIST: {'PASS': 2, 'FAIL': 7, 'NOT EVIDENCED': 0}
 
-Compliance Score: 16.67%
+Compliance Score: 22.22%
 
 === EVIDENCE COVERAGE ===
 
-Controls Assessed: 6
-Controls Not Evidenced: 3
+Controls Assessed: 9
+Controls Not Evidenced: 0
 
 === RISK SUMMARY ===
 
-Total Risk Score: 170
+Total Risk Score: 255
 Risk Level: HIGH
 Decision: BLOCK DEPLOYMENT

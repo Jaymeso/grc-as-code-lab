@@ -37,7 +37,7 @@ jobs:
 
       - name: Run Checkov JSON scan
         run: |
-          checkov -d terraform --output json > checkov_results.json || true
+          checkov -d . --framework terraform,github_actions --output json > checkov_results.json || true
 
       - name: Run compliance and risk engine
         run: |

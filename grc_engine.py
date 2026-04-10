@@ -14,14 +14,24 @@ def load_check_sets():
     with CHECKOV_RESULTS_PATH.open() as file_handle:
         checkov_data = json.load(file_handle)
 
-    failed_checks = {
-        check["check_id"]
-        for check in checkov_data["results"]["failed_checks"]
-    }
-    passed_checks = {
-        check["check_id"]
-        for check in checkov_data["results"]["passed_checks"]
-    }
+    if isinstance(checkov_data, dict):
+        result_sets = [checkov_data]
+    else:
+        result_sets = checkov_data
+
+    failed_checks = set()
+    passed_checks = set()
+
+    for result_set in result_sets:
+        results = result_set.get("results", {})
+        failed_checks.update(
+            check["check_id"]
+            for check in results.get("failed_checks", [])
+        )
+        passed_checks.update(
+            check["check_id"]
+            for check in results.get("passed_checks", [])
+        )
 
     return failed_checks, passed_checks
 
